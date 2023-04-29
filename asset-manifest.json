@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Talk-Harmony/static/css/main.4ea17537.css",
+    "main.js": "/Talk-Harmony/static/js/main.3f2e4f8b.js",
+    "static/media/Card1.png": "/Talk-Harmony/static/media/Card1.a65a3d67d4c46deabb1f.png",
+    "static/media/sideimage.jpg": "/Talk-Harmony/static/media/sideimage.b92f207c7493480fdf2e.jpg",
+    "static/media/front_image.png": "/Talk-Harmony/static/media/front_image.901bf58525c4de7594b2.png",
+    "static/media/frontpagebg3.jpg": "/Talk-Harmony/static/media/frontpagebg3.d4625546ef68c1bac821.jpg",
+    "static/media/sideimage1.jpg": "/Talk-Harmony/static/media/sideimage1.0732c3512ffa74d34206.jpg",
+    "static/media/student.png": "/Talk-Harmony/static/media/student.51d69699caaffebeb9c5.png",
+    "index.html": "/Talk-Harmony/index.html",
+    "main.4ea17537.css.map": "/Talk-Harmony/static/css/main.4ea17537.css.map",
+    "main.3f2e4f8b.js.map": "/Talk-Harmony/static/js/main.3f2e4f8b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ea17537.css",
+    "static/js/main.3f2e4f8b.js"
+  ]
+}
