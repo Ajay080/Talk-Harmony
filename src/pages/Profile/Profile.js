@@ -10,11 +10,12 @@ import Pointers from '../../components/pointers/Pointers';
 const Profile = () => {
     const navigate = useNavigate();
     const data = [
-        { name: "First Name", age: "Ajay"},
-        { name: "Last Name", age: "Singh"},
-        { name: "E-mail", age: "ajay@gmail.com"},
-        { name: "Alternative E-mail", age: "vajay@hmai.vom"},
-        { name: "Mobile number", age: "2389911"},
+        { name: "First Name", age: ""},
+        { name: "Last Name", age: ""},
+        { name: "E-mail", age: ""},
+        { name: "Mobile number", age: ""},
+        { name: "Bio", age: ""},
+        
         
       ]
         

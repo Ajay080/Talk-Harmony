@@ -33,7 +33,7 @@ const ProfileEdit = () => {
             `</table>
             </div>
             <div className="profile-right">
-                <div className="profile-img">
+                <div className="profile-img-edit">
                     
                 </div>
                 <div className="profile-img-but">
