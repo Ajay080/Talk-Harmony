@@ -1,26 +1,34 @@
-import React, { useState } from "react";
-import "./loginPage.css";
-import Logo from "../student.png";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../student.png";
+import "./loginPage.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [emailOrUsername, setEmailOrUsername] = useState("");
+
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
-      const response = await axios.post("http://127.0.0.1:8000/signin", {
-        email_or_username: emailOrUsername,
+      console.log("login_data: ", { username: username, password: password });
+      const response = await axios.post("http://127.0.0.1:5000/signin", {
+        username: username,
         password: password,
       });
-      if (response.data.message) {
+      console.log(response.data);
+
+      if (response.status === 200) {
         navigate("/Home");
+      } else {
+        alert("Something went wrong");
       }
     } catch (error) {
+      console.error(error);
       setError("Invalid credentials");
     }
   };
@@ -37,8 +45,8 @@ export default function LoginPage() {
             type="text"
             name="emailOrUsername"
             placeholder="Email or Username"
-            value={emailOrUsername}
-            onChange={(e) => setEmailOrUsername(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
           <input
@@ -58,7 +66,11 @@ export default function LoginPage() {
         <br />
         <Link to="/SignupPage">New User? SignUp Now</Link>
       </div>
-      <button onClick={()=> {navigate("/Home")}}></button>
+      <button
+        onClick={() => {
+          navigate("/Home");
+        }}
+      ></button>
     </div>
   );
 }

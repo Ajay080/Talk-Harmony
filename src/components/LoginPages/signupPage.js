@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import "./signupPage.css";
-import Logo from "../student.png";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Logo from "../student.png";
+import "./signupPage.css";
 
 export default function SignupPage() {
   const navigate = useNavigate();
+
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -14,30 +15,40 @@ export default function SignupPage() {
     email: "",
     password: "",
     confirm_password: "",
-    date_of_birth: new Date().toISOString().substr(0, 10),
-    gender: "",
   });
-  
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .post("http://127.0.0.1:8000/Signup", formData)
-      .then((response) => {
-        if (response.status === 200){          
-           navigate("/Profile");
-        } else {
-          alert("Invalid credentials")
+
+    const form_data = formData;
+    delete form_data.confirm_password;
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:5000/signup",
+        form_data
+      );
+
+      if (response.status === 201) {
+        navigate("/Profile");
+      } else {
+        alert("Something went wrong");
+      }
+    } catch (err) {
+      console.error(err.response);
+      if (err.response.data.message === "validation_error") {
+        let e = "";
+        for (const [k, v] of Object.entries(err.response.data.data.errors)) {
+          e += `${k}: ${v[0]}\n`;
         }
-       
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        setError(e);
+      }
+    }
   };
 
   return (
@@ -70,7 +81,7 @@ export default function SignupPage() {
             type="text"
             id="username"
             name="username"
-            placeholder="ente unique username"
+            placeholder="enter unique username"
             onChange={handleInputChange}
           />
           <input
@@ -94,32 +105,7 @@ export default function SignupPage() {
             placeholder="Confirm Password"
             onChange={handleInputChange}
           />
-          <fieldset>
-            <div className="DOB">
-              <label htmlFor="dateOfBirth">Date:</label>
-              <input
-                type="date"
-                id="date_of_birth"
-                name="date_of_birth"
-                onChange={handleInputChange}
-              />
-            </div>
-          </fieldset>
-
-          <label className="genderLabel" htmlFor="gender">
-            Gender:
-          </label>
-          <select
-            className="gender"
-            name="gender"
-            id="gender"
-            onChange={handleInputChange}
-          >
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Others">Others</option>
-          </select>
-
+          {error && <div className="error">{error}</div>}
           <button type="submit" className="submit">
             Submit
           </button>
@@ -129,7 +115,7 @@ export default function SignupPage() {
       <p className="policyPara">
         BY CLICKING SIGNUP YOU AGREE TO OUR TERMS, PRIVACY POLICIES AND COOKIE
         POLICIES. YOU MAY RECIE
-        </p>
+      </p>
     </div>
   );
 }
