@@ -51,7 +51,7 @@ const Feedbackform = () => {
           onChange={handleEmail}
         />
       </div>
-      </div>
+      </div> 
       <div className="feedback-right">
       <div className="feedback-feature feedback-text">
         <label htmlFor="feedbacktext">Feedback</label>

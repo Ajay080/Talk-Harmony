@@ -9,7 +9,7 @@ import {CiSettings} from 'react-icons/ci';
 import {BsFillInfoCircleFill} from 'react-icons/bs';
 
 const Pointers = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate(); 
   return (
     <div id="pointers">
         <div className="object" onClick={()=>{navigate("/Home")}}><AiFillHome/></div>

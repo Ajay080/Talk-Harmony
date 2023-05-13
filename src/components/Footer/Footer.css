@@ -7,8 +7,11 @@
 .footer button{
     font-size: 20px;
     padding:6px 10px;
-    background: greenyellow;
+    background: rgb(94, 61, 184);
     border-radius:10px;
+}
+.footer button:hover{
+    color:white;
 }
 .footer-head{
     text-align: center;
@@ -28,6 +31,9 @@
 .feedback-right{
     padding:0 2vw;
     border-left: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .feedback-text input{
     height:20vh;
@@ -64,6 +70,12 @@
 }
 .footer-bottom{
     text-align: center;
+}
+.feedback-text input{
+   
+    height:40px;
+    line-height:40px;
+    padding:0 5px;
 }
 
 @media screen and (max-width:650px){

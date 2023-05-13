@@ -1,15 +1,17 @@
 #pointers{
-    display: flex;
+ /*   display: flex;
     flex-direction: column;
     position:fixed;
-    /* transform: translateX(-45vw); */
+    /* transform: translateX(-45vw); 
     z-index: 2;
-    left:0;
+    /* left:0; 
     background-color: black;
     box-shadow: 10px 10px 8px 10px #888888;
-    padding:10px 10px;
-    margin:30vh 20px;
+    /* padding:10px 10px;
+    margin:30vh 20px; 
     border-radius: 30px;
+    */
+    display: none;
 }
 .object{
     /* z-index: 2; */
@@ -27,10 +29,19 @@
     background-color: white;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:600px) {
     #pointers{
+        display: flex;
+        /* flex-direction: column; */
+        position:fixed;
+        background-color: black;
+        border-radius: 30px;
         flex-direction: row;
-        transform: translate(20vw, 55vh);
+        z-index: 2;
+        /* transform: translateX(30%); */
+        bottom: 3vh;
+        left:20%;
+        padding: 1px 5px;
         box-shadow: 7px 7px 8px  #888888;
         justify-content: center;
         align-items: center;

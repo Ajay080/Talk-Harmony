@@ -97,7 +97,7 @@ const Home = () => {
   return (
     <>
     <NavbarAfter/>
-    <Pointers/>
+    <Pointers/> 
     <div className="home">
                 <div className="add-card">
             <div className="card-dp"><img src={Card1}></img></div>
