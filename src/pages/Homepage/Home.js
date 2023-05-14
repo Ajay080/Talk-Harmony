@@ -1,115 +1,112 @@
-import React from 'react'
-import './Home.css'
-import Card1 from './Card1.png'
-import Card from '../../components/Card'
-import Pointers from '../../components/pointers/Pointers'
-import NavbarAfter from '../../components/NavbarAfter1/NavbarAfter1'
+import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Card from "../../components/Card";
+import NavbarAfter from "../../components/NavbarAfter1/NavbarAfter1";
+import Pointers from "../../components/pointers/Pointers";
+import Card1 from "./Card1.png";
+import "./Home.css";
+import { doesTokenExist } from "../../lib/utils";
+import axios from "axios";
+
 const Home = () => {
-    const val=[
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
+  const [postInput, setPostInput] = useState("");
+
+  const token = doesTokenExist(navigate);
+
+  const getPostsCallback = useCallback((token) => {
+    const getPosts = async (token) => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/posts`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+        const parsedPosts = JSON.parse(response.data.data.posts);
+
+        if (response.status === 200) {
+          setPosts(...posts, parsedPosts);
+        } else {
+          alert("Something went wrong");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Something went wrong");
+      }
+    };
+    getPosts(token);
+  }, []);
+
+  const createPost = async () => {
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/posts`,
         {
-            "id":"1",
-            "name":"Ajay Singh",
-            "date":"10-feb-2018",
-            "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
+          text: postInput,
         },
         {
-          "id":"1",
-          "name":"Vijay Singh",
-          "date":"10-feb-2018",
-          "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-            "id":"1",
-            "name":"Ajay Singh",
-            "date":"10-feb-2018",
-            "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-          "id":"1",
-          "name":"Vijay Singh",
-          "date":"10-feb-2018",
-          "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-            "id":"1",
-            "name":"Ajay Singh",
-            "date":"10-feb-2018",
-            "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-          "id":"1",
-          "name":"Vijay Singh",
-          "date":"10-feb-2018",
-          "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-            "id":"1",
-            "name":"Ajay Singh",
-            "date":"10-feb-2018",
-            "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-          "id":"1",
-          "name":"Vijay Singh",
-          "date":"10-feb-2018",
-          "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-            "id":"1",
-            "name":"Ajay Singh",
-            "date":"10-feb-2018",
-            "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-          "id":"1",
-          "name":"Vijay Singh",
-          "date":"10-feb-2018",
-          "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-            "id":"1",
-            "name":"Ajay Singh",
-            "date":"10-feb-2018",
-            "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-          "id":"1",
-          "name":"Vijay Singh",
-          "date":"10-feb-2018",
-          "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-            "id":"1",
-            "name":"Ajay Singh",
-            "date":"10-feb-2018",
-            "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-        {
-          "id":"1",
-          "name":"Vijay Singh",
-          "date":"10-feb-2018",
-          "description":"I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best",
-        },
-      ]
-      const DisplayData=val.map((progps)=>{
-        return <Card props={progps}/>
-      })
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        window.location.reload();
+      } else {
+        alert("Failed to create post");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to create post");
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setPostInput(e.target.value);
+  };
+
+  useEffect(() => {
+    if (token) {
+      getPostsCallback(token);
+    }
+  }, [token, getPostsCallback]);
+
+  const DisplayData =
+    posts.length > 0
+      ? posts.map((post) => {
+          return <Card key={post._id} props={post} />;
+        })
+      : null;
+
   return (
     <>
-    <NavbarAfter/>
-    <Pointers/> 
-    <div className="home">
-                <div className="add-card">
-            <div className="card-dp"><img src={Card1}></img></div>
-            <div className="type-something"><textarea defaultValue={"Type Something"}></textarea></div>
-            <button className="post"> Post </button>
+      <NavbarAfter />
+      <Pointers />
+      <div className="home">
+        <div className="add-card">
+          <div className="card-dp">
+            <img src={Card1}></img>
+          </div>
+          <div className="type-something">
+            <textarea
+              placeholder={"Type Something"}
+              onChange={handleInputChange}
+              value={postInput}
+            ></textarea>
+          </div>
+          <button className="post" onClick={createPost}>
+            Post
+          </button>
         </div>
-        <div className="feed">
-            {DisplayData}
-        </div>
-    </div>
+        <div className="feed">{DisplayData}</div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

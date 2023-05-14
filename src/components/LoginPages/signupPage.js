@@ -25,22 +25,30 @@ export default function SignupPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const form_data = formData;
-    delete form_data.confirm_password;
+    if (formData.confirm_password !== formData.password) {
+      setError("Passwords do not match");
+      return;
+    }
 
+    const form_data = formData;
+    delete form_data.confirm_password; // Don't send confirm_password field to API
+    console.log(`${process.env.REACT_APP_API_URL}/signup`);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/signup",
+        `${process.env.REACT_APP_API_URL}/signup`,
         form_data
       );
+      const token = response.data.data.token;
 
-      if (response.status === 201) {
+      if (response.status === 201 && token) {
+        localStorage.setItem("token", token);
         navigate("/Profile");
       } else {
         alert("Something went wrong");
       }
     } catch (err) {
       console.error(err.response);
+      // Loop through multiple errors encountered during form validation
       if (err.response.data.message === "validation_error") {
         let e = "";
         for (const [k, v] of Object.entries(err.response.data.data.errors)) {
@@ -111,7 +119,6 @@ export default function SignupPage() {
           </button>
         </form>
       </div>
-
       <p className="policyPara">
         BY CLICKING SIGNUP YOU AGREE TO OUR TERMS, PRIVACY POLICIES AND COOKIE
         POLICIES. YOU MAY RECIE

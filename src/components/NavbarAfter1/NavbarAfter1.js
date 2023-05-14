@@ -1,37 +1,24 @@
-import React from 'react'
-import { useState } from "react"
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavLogo from "../icon.png";
-import { useNavigate } from 'react-router-dom';
-import {CgProfile} from 'react-icons/cg';
-import './NavbarAfter1.css';
-
-
-// import './HamburgerAfter.js'
-import {AiFillHome} from 'react-icons/ai'; 
-import {RxDashboard} from 'react-icons/rx';
-// import {CgProfile} from 'react-icons/cg';
-import {CiSettings} from 'react-icons/ci';
-import {BsFillInfoCircleFill} from 'react-icons/bs';
-import {BiLogOut} from 'react-icons/bi';
+import "./NavbarAfter1.css";
 
 const Navbar1 = () => {
-    let navigate = useNavigate();
-    const [isNavExpanded, setIsNavExpanded] = useState(false)
-    
-  return (
-      <nav className="navigation">
+  let navigate = useNavigate();
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
 
+  return (
+    <nav className="navigation">
       <a href="/" className="brand-name">
-          <img src={NavLogo} alt="fdf" />
-          TalkHarmony
+        <img src={NavLogo} alt="fdf" />
+        TalkHarmony
       </a>
       <button
         className="hamburger"
         onClick={() => {
-          setIsNavExpanded(!isNavExpanded)
+          setIsNavExpanded(!isNavExpanded);
         }}
-      >       
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -48,33 +35,74 @@ const Navbar1 = () => {
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
-        }>
+        }
+      >
         <ul>
           <li>
-            <a className="nav-manu" onClick={()=>{navigate("/Home")}}>Home</a>
+            <a
+              className="nav-manu"
+              onClick={() => {
+                navigate("/Home");
+              }}
+            >
+              Home
+            </a>
           </li>
           <li>
-            <a className="nav-manu" onClick={()=>{navigate("/Dashboard")}}>Dashboard</a>
+            <a
+              className="nav-manu"
+              onClick={() => {
+                navigate("/Dashboard");
+              }}
+            >
+              Dashboard
+            </a>
           </li>
           <li>
-            <a className="nav-manu" onClick={()=>{navigate("/profile")}}>Profile</a>
+            <a
+              className="nav-manu"
+              onClick={() => {
+                navigate("/profile");
+              }}
+            >
+              Profile
+            </a>
           </li>
           <li>
-          <a className="nav-manu" onClick={()=>{navigate("/setting")}}>Setting</a>
+            <a
+              className="nav-manu"
+              onClick={() => {
+                navigate("/setting");
+              }}
+            >
+              Setting
+            </a>
           </li>
           <li>
-          <a className="nav-manu" onClick={()=>{navigate("/about")}}>About</a>
+            <a
+              className="nav-manu"
+              onClick={() => {
+                navigate("/about");
+              }}
+            >
+              About
+            </a>
           </li>
           <li>
-          <a className="nav-manu" onClick={()=>{navigate("/")}}>logout</a>
+            <a
+              className="nav-manu"
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/");
+              }}
+            >
+              logout
+            </a>
           </li>
         </ul>
       </div>
-       
     </nav>
-        
-      
-  )
-}
+  );
+};
 
-export default Navbar1
+export default Navbar1;

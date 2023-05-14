@@ -15,14 +15,23 @@ export default function LoginPage() {
     event.preventDefault();
 
     try {
-      console.log("login_data: ", { username: username, password: password });
-      const response = await axios.post("http://127.0.0.1:5000/signin", {
-        username: username,
-        password: password,
-      });
-      console.log(response.data);
+      console.log("login data: ", { username: username, password: password });
 
-      if (response.status === 200) {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/signin`,
+        {
+          username: username,
+          password: password,
+        }
+      );
+      console.log(response.data);
+      const token = response.data.data.token;
+
+      // Check is request was a success and token was sent
+      if (response.status === 200 && token) {
+        // Save the token
+        localStorage.setItem("token", token);
+        // Redirect user to home page
         navigate("/Home");
       } else {
         alert("Something went wrong");
@@ -66,11 +75,6 @@ export default function LoginPage() {
         <br />
         <Link to="/SignupPage">New User? SignUp Now</Link>
       </div>
-      <button
-        onClick={() => {
-          navigate("/Home");
-        }}
-      ></button>
     </div>
   );
 }
