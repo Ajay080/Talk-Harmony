@@ -32,7 +32,7 @@ export default function SignupPage() {
 
     const form_data = formData;
     delete form_data.confirm_password; // Don't send confirm_password field to API
-    console.log(`${process.env.REACT_APP_API_URL}/signup`);
+
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/signup`,
