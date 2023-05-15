@@ -4,6 +4,7 @@
     border-top-right-radius: 10px;
     margin: 2% 0;
     box-shadow: 4px 4px 6px 5px rgba(0, 0, 0, 0.2);
+    width:80vw;
 }
 .cardo{
     display: flex;
@@ -20,7 +21,7 @@
     justify-items: center;
     font-size: small;
 }
-
+ 
 .card-description{
     display:flex;
     justify-content: space-between;
@@ -41,10 +42,8 @@
 } 
 .post-container p{
     border: none;
-    /* margin-left:10px; 
-    margin-top:10px; */
     margin:5px 20px;
-    /* height:120px; */
+    height:100px;
     width:100%;
     text-align: justify;
     overflow-y:scroll;
@@ -55,8 +54,9 @@
     display: none;
 }
 .card-description .dp{
-    width:40px;
-    height:40px;
+    width:35px;
+    height:35px;
+    border:1px solid rgb(0, 0, 0);
     border-radius:50%;
     background-image: url("../pages/Dashboard/Card1.png");
     background-size: cover;
@@ -77,8 +77,6 @@
     margin-bottom:10px;
     font-size: 0.8rem;
     height:23px;
-    /* width:20vw; */
-
 }
 
 @media screen and (max-width:800px) {
@@ -88,5 +86,8 @@
     }
     .sharing{
         margin-left:2.5%;
+    }
+    .card{
+        width:90vw;
     }
 }

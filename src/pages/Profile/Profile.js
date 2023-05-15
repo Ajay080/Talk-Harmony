@@ -15,8 +15,7 @@ const Profile = () => {
         { name: "E-mail", age: ""},
         { name: "Mobile number", age: ""},
         { name: "Bio", age: ""},
-        
-        
+        { name: "Password", password:""}
       ]
         
   return (

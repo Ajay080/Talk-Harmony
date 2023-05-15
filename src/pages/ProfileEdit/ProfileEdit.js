@@ -11,7 +11,7 @@ const ProfileEdit = () => {
         { name: "E-mail", age: "ajay@gmail.com"},
         { name: "Alternative E-mail", age: "vajay@hmai.vom"},
         { name: "Mobile number", age: "2389911"},
-        
+        {name: "Password",age:"2389911"}
       ]
         
   return (

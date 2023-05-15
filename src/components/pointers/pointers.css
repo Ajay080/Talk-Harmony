@@ -14,7 +14,7 @@
     display: none;
 }
 .object{
-    /* z-index: 2; */
+    /* z-index: 2; */ 
     /* height: max-content; */
     font-size: 25px;
     padding:0px 0px;
@@ -30,18 +30,20 @@
 }
 
 @media screen and (max-width:600px) {
+    .ot{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
     #pointers{
         display: flex;
-        /* flex-direction: column; */
         position:fixed;
         background-color: black;
         border-radius: 30px;
         flex-direction: row;
         z-index: 2;
-        /* transform: translateX(30%); */
         bottom: 3vh;
-        left:20%;
-        padding: 1px 5px;
+        padding: 5px 0.1rem;
         box-shadow: 7px 7px 8px  #888888;
         justify-content: center;
         align-items: center;

@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     margin: 70px auto;
-    padding:10% 0;
+    padding:2% 0;
 }
 .profile h1{
     text-align: center;
@@ -16,7 +16,7 @@
     /* border:2px solid black; */
     justify-content: space-evenly;
     align-items: center;
-    width:1000px; 
+    /* width:1000px;  */
 }
 .profile-img{
     width:300px; 

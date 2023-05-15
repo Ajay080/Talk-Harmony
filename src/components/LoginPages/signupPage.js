@@ -23,6 +23,7 @@ export default function SignupPage() {
   };
 
   const handleSubmit = async (event) => {
+    console.log(process.env)
     event.preventDefault();
 
     if (formData.confirm_password !== formData.password) {
@@ -114,15 +115,16 @@ export default function SignupPage() {
             onChange={handleInputChange}
           />
           {error && <div className="error">{error}</div>}
-          <button type="submit" className="submit">
+          <button type="submit" className="signup-submit">
             Submit
           </button>
         </form>
-      </div>
-      <p className="policyPara">
+        <p className="policyPara">
         BY CLICKING SIGNUP YOU AGREE TO OUR TERMS, PRIVACY POLICIES AND COOKIE
         POLICIES. YOU MAY RECIE
       </p>
+      </div>
+      
     </div>
   );
 }

@@ -77,7 +77,7 @@ const Home = () => {
   }, [token, getPostsCallback]);
 
   const DisplayData =
-    posts.length > 0
+    posts.length > 0 
       ? posts.map((post) => {
           return <Card key={post._id} props={post} />;
         })
@@ -89,19 +89,16 @@ const Home = () => {
       <Pointers />
       <div className="home">
         <div className="add-card">
-          <div className="card-dp">
-            <img src={Card1}></img>
-          </div>
-          <div className="type-something">
-            <textarea
-              placeholder={"Type Something"}
-              onChange={handleInputChange}
-              value={postInput}
-            ></textarea>
-          </div>
-          <button className="post" onClick={createPost}>
-            Post
-          </button>
+          <form className="write-text" onSubmit={(e)=>{e.preventDefault()}}>
+                  <input
+                    type="text"
+                    value={postInput}
+                    className="write-input"
+                    placeholder="Type Something"
+                    onChange={handleInputChange}
+                  />
+                  <button className="write-submit" type="submit" onClick={createPost}> Post </button>
+          </form>
         </div>
         <div className="feed">{DisplayData}</div>
       </div>

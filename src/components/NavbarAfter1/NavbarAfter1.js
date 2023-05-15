@@ -68,7 +68,7 @@ const Navbar1 = () => {
               Profile
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               className="nav-manu"
               onClick={() => {
@@ -77,7 +77,7 @@ const Navbar1 = () => {
             >
               Setting
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               className="nav-manu"
