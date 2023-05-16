@@ -1,6 +1,7 @@
 import React from 'react'
 import NavbarAfter from '../../components/NavbarAfter1/NavbarAfter1'
 import Pointers from '../../components/pointers/Pointers'
+import SimranJoshi from './SimranJoshi.jpg'
 import './About.css'
 const About = () => {
   return (
@@ -63,17 +64,19 @@ const About = () => {
             </div>
 
             <div className='team-card'>
-                <div className="team-image"></div>
+                <div className="team-image">
+                    <img src={SimranJoshi} alt="simranjoshi"/>
+                </div>
                 <div className="team-details">
-                    <h3>Ajay Singh</h3>
-                    <a href="https://www.pluralsight.com/">LinkedIn </a>
+                    <h3>Simran Joshi</h3>
+                    <a href="https://www.linkedin.com/in/simran-joshi-443105212/">LinkedIn </a>
                 </div>
             </div>
 
             <div className='team-card'>
                 <div className="team-image"></div>
                 <div className="team-details">
-                    <h3>Ajay Singh</h3>
+                    <h3>Simran Joshi</h3>
                     <a href="https://www.pluralsight.com/">LinkedIn </a>
                 </div>
             </div>
