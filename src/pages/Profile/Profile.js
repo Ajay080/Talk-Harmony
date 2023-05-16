@@ -15,7 +15,6 @@ const Profile = () => {
         { name: "Last Name", age: ""},
         { name: "E-mail", age: ""},
         { name: "Bio", age: ""},
-
       ]
         
   return (
@@ -35,7 +34,7 @@ const Profile = () => {
                         </tr>
                     )
                     })}
-            `</table>
+            </table>
             </div>
 
             <div className="profile-img">

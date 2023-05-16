@@ -1,70 +1,81 @@
-.profile{
+.profile-edit{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 70px auto;
-    padding:10% 0;
+    margin: 5rem auto;
+    padding:2% 0;
 }
-.profile h1{
+.profile-edit h1{
     text-align: center;
-    margin-bottom: 2%;
+    margin-bottom: 2rem;
 }
-.profile-container{
+.profile-container-edit{
     display: flex;
     flex-direction:row;
-    /* border:2px solid black; */
     justify-content: space-evenly;
     align-items: center;
-    width:1000px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    padding: 3rem 5rem;
 }
 .profile-img-edit{
-    width:300px;
-    height:300px;
-    margin:20px 20px;
+    width:200px; 
+    height:200px;
+    margin-left:7rem;
     border-radius: 50%;
     background-size: cover;
-    background-image: url("../Profile/Card1.png") ;
+    background-image: url("./Card1.png") ;
     border:1px solid black;
-
 }
-.profile-left-o th{
-    width:200px;
-    font-size :20px;
+.profile-left-edit th,.profile-left-edit td,.profile-left-edit input{
+    font-size :1.2rem;
     border:1px solid black;
-    height: 30%;
+    min-height: 30px;
     text-align: left;
+    
+}
+
+.profile-left-edit th{
     border:none;
+    width:100px;
 }
-
-
-.profile-left-o table{
-    border-collapse:separate;
-    border-spacing: 0px 2px;
-}
-.profile-img-but {
+.profile-left-edit td,.profile-left-edit input{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin:40px 0;
 }
-.set-edit{
 
+.profile-left-edit input{
+    margin:0 auto;
+    border:none;
+}
+.profile-left-edit td ,.profile-left-edit input{
+    background-color: rgb(255, 255, 255);
+    color:black;
     width:200px;
-    font-size :20px;
-    border:1px solid black;
-    text-align: left;
-    background-color: grey;
-    border-radius: 10px;
-    height: 40px;
-    color:white;
-    padding-left:10px;
+    /* padding-left:10px; */
     opacity: 0.7;
+    font-size: 1rem;
+    /* overflow-x: scroll; */
+}
+.profile-left-edit input::-webkit-scrollbar{
+    display:none;
+}
+.profile-left-edit table{
+    border-collapse:separate;
+    border-spacing: 20px 40px;
+}
+.profile-img-button-edit{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7rem;
 }
 
-.profile button{
-    font-size:20px;
+.profile-edit button{
+    font-size:1 rem;
+    margin-top:4rem;
     padding:5px 20px;
     background-color: rgb(74, 74, 74);
     color:white;
@@ -72,43 +83,49 @@
 
 }
 
-.profile button:hover{
+.profile-edit-button-edit button:hover{
     cursor:pointer;
     box-shadow: 2px 2px #363030;
     background-color: #363030;
 }
 
-.profile-edit-button{
-    margin:50px 0;
-}
-
-.table-detail-left{
-    font-size:2rem;
-}
-
 @media screen and (max-width:800px) {
-    .profile-container{
+    .profile-edit{
+        padding:0 4%;
+    }
+    .profile-right-edit{
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+    }
+    .profile-container-edit{
         flex-direction:column-reverse;
-        width:100%;
+        padding:5% 0;
     }
-    .table-detail-left{
-        font:20px;
+    .profile-img-button-edit{
+        margin:0 auto;
     }
-    .profile-img{
+    .profile-edit button{
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+    .profile-img-edit{
         width:150px;
         height:150px;
+        margin: 0 auto;
+        /* margin-bottom:3rem; */
     }
-    .profile-left-o table{
+    .profile-edit-button-edit{
+        margin:0 auto;
+    }
+    .profile-left-edit table{
+        /* border-collapse:separate; */
         border-spacing: 40px 10px;
     }
-    .profile-left-o td,.profile-left-o th{
-        font-size: 1.3rem;
+    .profile-left-edit td,.profile-left-edit th{
+        font-size: 1rem;
     }
-    
-    .profile-edit-button button{
+    .profile-edit-button-edit button{
         padding:2px 30px;
-    }
-    .profile-edit-button{
-        margin:20px 0;
     }
 }

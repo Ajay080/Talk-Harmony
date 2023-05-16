@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card";
 import NavbarAfter from "../../components/NavbarAfter1/NavbarAfter1";
 import Pointers from "../../components/pointers/Pointers";
-import Card1 from "./Card1.png";
 import "./Home.css";
 import { doesTokenExist } from "../../lib/utils";
 import axios from "axios";
