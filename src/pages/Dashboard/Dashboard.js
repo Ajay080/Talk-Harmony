@@ -50,12 +50,27 @@ const Dashboard = () => {
       <div className="dashboard-header">
         <div className="dashboard-profile">
           <div className ="dashboard-dp">
-            <div className="dp-out"><div className="dp-in"></div>            </div>
+            <div className="dp-out">
+              <img src={Card1} alt="Dp"/>
+            </div>
             <h3><strong>Ajay Singh</strong></h3>
           </div>
           <div className="dashboard-description">
-            <p><strong>Dashboard</strong></p>
-            <textarea defaultValue={"Description"}></textarea>
+            <p className="description-bio-head">Bio</p>
+            <p className="description-bio">
+            Ambivert
+            <br/>
+            #hermit
+            <br/>
+            Lob: Designs and Sketches
+            <br/>
+            Vit'24
+            <br/>
+            You will build a small tic-tac-toe game
+            during this tutorial.This tutorial does not assume any 
+            existing React knowledge. 
+            
+            </p>
           </div>
         </div>
         <div className="dashboard-stats">

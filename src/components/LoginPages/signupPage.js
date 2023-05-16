@@ -15,6 +15,7 @@ export default function SignupPage() {
     email: "",
     password: "",
     confirm_password: "",
+    bio:"",
   });
 
   const handleInputChange = (event) => {
@@ -112,6 +113,13 @@ export default function SignupPage() {
             id="confirm_password"
             name="confirm_password"
             placeholder="Confirm Password"
+            onChange={handleInputChange}
+          />
+          <input
+            type="bio"
+            id="bio"
+            name="bio"
+            placeholder="Bio"
             onChange={handleInputChange}
           />
           {error && <div className="error">{error}</div>}

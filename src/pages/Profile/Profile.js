@@ -1,6 +1,5 @@
 import './Profile.css'
 import React from 'react'
-import FrontImage from '../../components/front_image.png'
 import {useNavigate} from 'react-router-dom';
 import NavbarAfter from '../../components/NavbarAfter1/NavbarAfter1'
 import Pointers from '../../components/pointers/Pointers';
