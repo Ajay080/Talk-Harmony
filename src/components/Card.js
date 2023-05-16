@@ -23,7 +23,7 @@ const Card = ({ props }) => {
       <div className="sharing">
         <textarea
           className="sharing-obj"
-          defaultValue={"comment here"}
+          placeholder={"comment here"}
         ></textarea>
         <AiFillHeart className="sharing-obj" />
         <BiSave className="sharing-obj" />
