@@ -49,8 +49,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width:150px;
-    height:150px; */
+    width:150px;
+    height:150px;
     background-color: rgb(111, 111, 111);
     border-radius: 50%;
     object-fit: contain;
