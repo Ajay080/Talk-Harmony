@@ -69,14 +69,13 @@
     margin:0 5px;
     font-size: 1.5rem;
 }
-.sharing textarea{
+.sharing-form input{
     border-radius: 10px;
     margin-top:10px;
     margin-bottom:10px;
     font-size: 0.8rem;
     height:23px;
 }
-
 @media screen and (max-width:800px) {
     .post-container {
         margin-left:10px;

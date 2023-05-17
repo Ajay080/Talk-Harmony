@@ -7,7 +7,18 @@ import { AiOutlineHeart } from "react-icons/ai";
 import "./Card.css";
 import { useState } from 'react';
 
+
 const Card = ({ props }) => {
+  const [Text, setText]=React.useState('');
+  const handleText=(event)=>{
+    setText(event.target.value);
+  }
+  const handleSub = (event) => {
+    event.preventDefault();
+
+    setText('');
+    // alert(email + ' ' + password);
+  };
   console.log(props)
   const [heart, setheart] = useState(0);
   function handleClick() {
@@ -37,10 +48,20 @@ const Card = ({ props }) => {
         <p>{props.text}</p>
       </div>
       <div className="sharing">
-        <textarea
+      <form className="sharing-form" onSubmit={handleSub}>
+        <input
+          id="name"
+          type="text"
           className="sharing-obj"
           placeholder={"comment here"}
-        ></textarea>
+          value={Text}
+          onChange={handleText}
+          />
+      </form>
+        {/* <textarea
+          className="sharing-obj"
+          placeholder={"comment here"}
+        ></textarea> */}
         {heart === 1 && <AiFillHeart className="sharing-obj" onClick={() => { handleClick() }} />}
         {heart === 0 && <AiOutlineHeart className="sharing-obj" onClick={() => { handleClick() }} />}
         <BiSave className="sharing-obj" />

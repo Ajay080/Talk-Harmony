@@ -83,7 +83,7 @@ const Home = () => {
       : null;
 
   return (
-    <>
+    <> 
       <NavbarAfter />
       <Pointers />
       <div className="home">
