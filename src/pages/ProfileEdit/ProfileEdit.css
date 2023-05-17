@@ -103,9 +103,6 @@
         flex-direction:column-reverse;
         padding:5% 0;
     }
-    .profile-img-button-edit{
-        margin:0 auto;
-    }
     .profile-edit button{
         margin-bottom: 2rem;
         margin-top: 2rem;

@@ -138,8 +138,8 @@ const ProfileEdit = () => {
                 backgroundSize: "cover",
               }}
             ></div>
-            <div>
-              <div className="profile-img-button-edit"></div>
+            
+              <div className="profile-img-button-edit">
               <label for="file"></label>
               <input
                 type="file"
@@ -148,16 +148,18 @@ const ProfileEdit = () => {
                 accept=".png,.jpg,.jpeg"
                 onChange={handleImageUpload}
               />
-            </div>
-            <div>
-              <button
+              </div>
+            
+            {/*<div>
+               <button
                 onClick={(e) => {
                   e.preventDefault();
                 }}
               >
                 Upload
-              </button>
+              </button> 
             </div>
+            */}
           </div>
         </div>
         <div className="profile-edit-button-edit">
