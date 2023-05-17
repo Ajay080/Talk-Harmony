@@ -65,7 +65,7 @@ const Profile = () => {
             </table>
           </div>
 
-          <div className="profile-img">
+          
             <div
               className="profile-img"
               style={{
@@ -76,7 +76,7 @@ const Profile = () => {
                 backgroundSize: "cover",
               }}
             ></div>
-          </div>
+          
         </div>
         <div className="profile-edit-button">
           <button
